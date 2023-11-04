@@ -435,8 +435,7 @@ def main():
     projects = {'wikipedia' : ['nl']}
     
     linkingPageTitles = {
-                        'wikipedia' : {'nl' : 'Gebruiker:Erwin/Bot/Archiveerlinks'},
-                        'wikisource' : {'nl' : 'Gebruiker:Erwin85/Bot/Archiveerlinks'}
+                          'wikipedia' : {'nl' : 'Gebruiker:Erwin/Bot/Archiveerlinks'}
                         }
     for arg in pywikibot.handle_args():
         if arg == '-always':
