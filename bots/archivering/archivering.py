@@ -192,6 +192,11 @@ class ArchivingRobot:
             try:
                 # Load the page's text from the wiki.
                 original_text = page.get()
+
+                if not page.botMayEdit():
+                    pywikibot.output(u'Pagina %s wordt overgeslagen, deze pagina laat bots niet toe.' % page.title())
+                    continue
+
                 if not page.has_permission('edit'):
                     pywikibot.output(u'Pagina %s wordt overgeslagen, deze pagina is beveiligd.' % page.title())
                     continue
