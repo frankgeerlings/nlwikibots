@@ -59,16 +59,16 @@ class ArchivingRobot:
         self.renoarchive = re.compile(r'<!-- noarchive -->')
 
         #Comment to place when there's a syntax error in the settings.
-        self.nosettingscomment = '\n== Archivering ==\nBeste, ik heb geprobeerd deze pagina te archiveren, maar er zit een fout in je instellingen. Zie [[Gebruiker:Erwin/Bot/Archivering]] voor een correcte syntax van de instellingen. Als je vragen hebt, kun je deze stellen op [[Overleg project:nlwikibots]]. --~~~~'   
+        self.nosettingscomment = '\n== Archivering ==\nBeste, ik heb geprobeerd deze pagina te archiveren, maar er zit een fout in je instellingen. Zie [[Gebruiker:Erwin/Bot/Archivering]] voor een correcte syntax van de instellingen. Als je vragen hebt, kun je deze stellen op [[Overleg Wikipedia:Nlwikibots]]. --~~~~'
 
         #Comment to place when there's a syntax error in the magicwords setting.
-        self.nomagicwordscomment = '\n== Archivering ==\nBeste, ik heb geprobeerd deze pagina te archiveren, maar er zit een fout in je instelling voor "magicwords". Zie [[Gebruiker:Erwin/Bot/Archivering]] voor een correcte syntax van deze instelling. Als je vragen hebt, kun je deze stellen op [[Overleg project:nlwikibots]]. --~~~~'
+        self.nomagicwordscomment = '\n== Archivering ==\nBeste, ik heb geprobeerd deze pagina te archiveren, maar er zit een fout in je instelling voor "magicwords". Zie [[Gebruiker:Erwin/Bot/Archivering]] voor een correcte syntax van deze instelling. Als je vragen hebt, kun je deze stellen op [[Overleg Wikipedia:Nlwikibots]]. --~~~~'
 
         #Summary when placing one of the above comments.
         self.commentsummary = '/* Archivering */ Automatisch bericht van nlwikibots.'
 
         #Comment to place when the archive page is a redirect
-        self.cantedit = '\n== Archiveringspagina ==\nBeste, ik heb geprobeerd deze pagina te archiveren, maar een archiveringsdoel, [[%s]], is een doorverwijzing, beveiligd of mijn bot mag de pagina niet bewerken. Zou je daarom de archiveringscode even willen controleren? Er is niet gearchiveerd. Als je vragen hebt, kun je deze stellen op [[Overleg project:nlwikibots]]. --~~~~'
+        self.cantedit = '\n== Archiveringspagina ==\nBeste, ik heb geprobeerd deze pagina te archiveren, maar een archiveringsdoel, [[%s]], is een doorverwijzing, beveiligd of mijn bot mag de pagina niet bewerken. Zou je daarom de archiveringscode even willen controleren? Er is niet gearchiveerd. Als je vragen hebt, kun je deze stellen op [[Overleg Wikipedia:Nlwikibots]]. --~~~~'
 
         #Summary when placing the above comments.
         self.canteditsummary = '/* Archiveringspagina */ Automatisch bericht van nlwikibots.'
