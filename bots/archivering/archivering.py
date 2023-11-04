@@ -468,7 +468,7 @@ def main():
 
             pywikibot.output(u'\n>> %s:%s<<\n' % (family, lang))
             referredPage = pywikibot.Page(pywikibot.Site(code=lang, fam=family), linkingPageTitle)
-            gen = referredPage.getReferences()
+            gen = referredPage.getReferences(only_template_inclusion=True)
             preloadingGen = pagegenerators.PreloadingGenerator(gen, groupsize=40)
             bot = ArchivingRobot(preloadingGen, time.time(), pywikibot.Site(code=lang, fam=family), linkingPageTitle, acceptall)
             bot.run()
