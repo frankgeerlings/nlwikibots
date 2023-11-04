@@ -440,7 +440,7 @@ def main():
     projects = {'wikipedia' : ['nl']}
     
     linkingPageTitles = {
-                          'wikipedia' : {'nl' : 'Gebruiker:Erwin/Bot/Archiveerlinks'}
+                          'wikipedia' : {'nl' : ['Gebruiker:Erwin/Bot/Archiveerlinks', 'Sjabloon:Archiveer']}
                         }
     for arg in pywikibot.handle_args():
         if arg == '-always':
@@ -462,17 +462,21 @@ def main():
     for family, langs in projects.items():
         for lang in langs:
             if not test:
-                linkingPageTitle = linkingPageTitles[family][lang]
+                linkingPageTitleArray = linkingPageTitles[family][lang]
             else:
-                linkingPageTitle = 'Gebruiker:Erwin/Bot/Archiveerlinkstest'
+                linkingPageTitleArray = ['Gebruiker:Erwin/Bot/Archiveerlinkstest']
 
-            pywikibot.output(u'\n>> %s:%s<<\n' % (family, lang))
-            referredPage = pywikibot.Page(pywikibot.Site(code=lang, fam=family), linkingPageTitle)
-            gen = referredPage.getReferences(only_template_inclusion=True)
-            preloadingGen = pagegenerators.PreloadingGenerator(gen, groupsize=40)
-            bot = ArchivingRobot(preloadingGen, time.time(), pywikibot.Site(code=lang, fam=family), linkingPageTitle, acceptall)
-            bot.run()
-    
+            for title in linkingPageTitleArray:
+                handle_pages(title, family, lang, acceptall)
+
+def handle_pages(linkingPageTitle, family, lang, acceptall):
+    pywikibot.output(u'\n>> %s:%s<<\n' % (family, lang))
+    referredPage = pywikibot.Page(pywikibot.Site(code=lang, fam=family), linkingPageTitle)
+    gen = referredPage.getReferences(only_template_inclusion=True)
+    preloadingGen = pagegenerators.PreloadingGenerator(gen, groupsize=40)
+    bot = ArchivingRobot(preloadingGen, time.time(), pywikibot.Site(code=lang, fam=family), linkingPageTitle, acceptall)
+    bot.run()
+
 if __name__ == "__main__":
     try:
         main()
