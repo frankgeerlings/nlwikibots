@@ -125,7 +125,7 @@ class ArchivingRobot:
         lines = original_text.split('\n')
         mode = 0
         for line in lines:
-            if mode == 0 and re.search(r'\{\{%s(?:test|)' % self.linkingPageTitle, line):
+            if mode == 0 and re.search(r'\{\{%s(?:test|)' % self.linkingPageTitle.replace('Sjabloon:', ''), line):
                 mode = 1
                 continue
             if mode == 1 and re.match('}}',line):
